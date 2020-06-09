@@ -7,6 +7,10 @@
     "start": "tsc -w",
     "build": "tsc"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": "git@github.com:Blockle/blocks-builder.git",
   "author": "Niek Saarberg <n.saarberg@gmail.com>",
   "license": "MIT",
