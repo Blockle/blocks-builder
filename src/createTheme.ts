@@ -1,4 +1,5 @@
 import { BlockleTheme, BlockleTokens } from './types';
+import { createProp } from './utils';
 
 export const createTheme = ({
   breakpoints,
@@ -157,158 +158,13 @@ export const createTheme = ({
           'overflow-y': 'visible',
         },
       },
-      padding: {
-        gutter: {
-          padding: spacing.gutter,
-        },
-        xsmall: {
-          padding: spacing.xsmall,
-        },
-        small: {
-          padding: spacing.small,
-        },
-        medium: {
-          padding: spacing.medium,
-        },
-        large: {
-          padding: spacing.large,
-        },
-        xlarge: {
-          padding: spacing.xlarge,
-        },
-      },
-      paddingBottom: {
-        gutter: {
-          'padding-bottom': spacing.gutter,
-        },
-        xsmall: {
-          'padding-bottom': spacing.xsmall,
-        },
-        small: {
-          'padding-bottom': spacing.small,
-        },
-        medium: {
-          'padding-bottom': spacing.medium,
-        },
-        large: {
-          'padding-bottom': spacing.large,
-        },
-        xlarge: {
-          'padding-bottom': spacing.xlarge,
-        },
-      },
-      paddingLeft: {
-        gutter: {
-          'padding-left': spacing.gutter,
-        },
-        xsmall: {
-          'padding-left': spacing.xsmall,
-        },
-        small: {
-          'padding-left': spacing.small,
-        },
-        medium: {
-          'padding-left': spacing.medium,
-        },
-        large: {
-          'padding-left': spacing.large,
-        },
-        xlarge: {
-          'padding-left': spacing.xlarge,
-        },
-      },
-      paddingRight: {
-        gutter: {
-          'padding-right': spacing.gutter,
-        },
-        xsmall: {
-          'padding-right': spacing.xsmall,
-        },
-        small: {
-          'padding-right': spacing.small,
-        },
-        medium: {
-          'padding-right': spacing.medium,
-        },
-        large: {
-          'padding-right': spacing.large,
-        },
-        xlarge: {
-          'padding-right': spacing.xlarge,
-        },
-      },
-      paddingTop: {
-        gutter: {
-          'padding-top': spacing.gutter,
-        },
-        xsmall: {
-          'padding-top': spacing.xsmall,
-        },
-        small: {
-          'padding-top': spacing.small,
-        },
-        medium: {
-          'padding-top': spacing.medium,
-        },
-        large: {
-          'padding-top': spacing.large,
-        },
-        xlarge: {
-          'padding-top': spacing.xlarge,
-        },
-      },
-      paddingX: {
-        gutter: {
-          'padding-left': spacing.gutter,
-          'padding-right': spacing.gutter,
-        },
-        xsmall: {
-          'padding-left': spacing.xsmall,
-          'padding-right': spacing.xsmall,
-        },
-        small: {
-          'padding-left': spacing.small,
-          'padding-right': spacing.small,
-        },
-        medium: {
-          'padding-left': spacing.medium,
-          'padding-right': spacing.medium,
-        },
-        large: {
-          'padding-left': spacing.large,
-          'padding-right': spacing.large,
-        },
-        xlarge: {
-          'padding-left': spacing.xlarge,
-          'padding-right': spacing.xlarge,
-        },
-      },
-      paddingY: {
-        gutter: {
-          'padding-top': spacing.gutter,
-          'padding-bottom': spacing.gutter,
-        },
-        xsmall: {
-          'padding-top': spacing.xsmall,
-          'padding-bottom': spacing.xsmall,
-        },
-        small: {
-          'padding-top': spacing.small,
-          'padding-bottom': spacing.small,
-        },
-        medium: {
-          'padding-top': spacing.medium,
-          'padding-bottom': spacing.medium,
-        },
-        large: {
-          'padding-top': spacing.large,
-          'padding-bottom': spacing.large,
-        },
-        xlarge: {
-          'padding-top': spacing.xlarge,
-          'padding-bottom': spacing.xlarge,
-        },
-      },
+      padding: createProp(spacing, (value) => ({ padding: value })),
+      paddingBottom: createProp(spacing, (value) => ({ 'padding-bottom': value })),
+      paddingLeft: createProp(spacing, (value) => ({ 'padding-left': value })),
+      paddingRight: createProp(spacing, (value) => ({ 'padding-right': value })),
+      paddingTop: createProp(spacing, (value) => ({ 'padding-top': value })),
+      paddingX: createProp(spacing, (value) => ({ 'padding-left': value, 'padding-right': value })),
+      paddingY: createProp(spacing, (value) => ({ 'padding-top': value, 'padding-bottom': value })),
       position: {
         relative: {
           position: 'relative',
@@ -367,115 +223,11 @@ export const createTheme = ({
           'font-weight': 'var(--weight-bold, 700)',
         },
       },
-      color: {
-        primary: {
-          color: colors.primary,
-        },
-        secondary: {
-          color: colors.secondary,
-        },
-        success: {
-          color: colors.success,
-        },
-        warning: {
-          color: colors.warning,
-        },
-        black: {
-          color: colors.black,
-        },
-        white: {
-          color: colors.white,
-        },
-        gray: {
-          color: colors.gray,
-        },
-      },
-      backgroundColor: {
-        card: {
-          'background-color': 'var(--background-card, #fff)',
-        },
-        primary: {
-          'background-color': colors.primary,
-        },
-        secondary: {
-          'background-color': colors.secondary,
-        },
-        success: {
-          'background-color': colors.success,
-        },
-        warning: {
-          'background-color': colors.warning,
-        },
-        black: {
-          'background-color': colors.black,
-        },
-        white: {
-          'background-color': colors.white,
-        },
-        gray: {
-          'background-color': colors.gray,
-        },
-      },
-      gridGap: {
-        gutter: {
-          'grid-gap': spacing.gutter,
-        },
-        xsmall: {
-          'grid-gap': spacing.xsmall,
-        },
-        small: {
-          'grid-gap': spacing.small,
-        },
-        medium: {
-          'grid-gap': spacing.medium,
-        },
-        large: {
-          'grid-gap': spacing.large,
-        },
-        xlarge: {
-          'grid-gap': spacing.xlarge,
-        },
-      },
-      negativeMarginTop: {
-        gutter: {
-          'margin-top': `calc(${spacing.gutter} * -1)`,
-        },
-        xsmall: {
-          'margin-top': `calc(${spacing.xsmall} * -1)`,
-        },
-        small: {
-          'margin-top': `calc(${spacing.small} * -1)`,
-        },
-        medium: {
-          'margin-top': `calc(${spacing.medium} * -1)`,
-        },
-        large: {
-          'margin-top': `calc(${spacing.large} * -1)`,
-        },
-        xlarge: {
-          'margin-top': `calc(${spacing.xlarge} * -1)`,
-        },
-      },
-      negativeMarginLeft: {
-        gutter: {
-          'margin-left': `calc(${spacing.gutter} * -1)`,
-        },
-        xsmall: {
-          'margin-left': `calc(${spacing.xsmall} * -1)`,
-        },
-        small: {
-          'margin-left': `calc(${spacing.small} * -1)`,
-        },
-        medium: {
-          'margin-left': `calc(${spacing.medium} * -1)`,
-        },
-        large: {
-          'margin-left': `calc(${spacing.large} * -1)`,
-        },
-        xlarge: {
-          'margin-left': `calc(${spacing.xlarge} * -1)`,
-        },
-      },
+      color: createProp(colors, (value) => ({ color: value })),
+      backgroundColor: createProp(colors, (value) => ({ 'background-color': value })),
+      gridGap: createProp(spacing, (value) => ({ 'grid-gap': value })),
+      negativeMarginTop: createProp(spacing, (value) => ({ 'margin-top': `calc(${value} * -1)` })),
+      negativeMarginLeft: createProp(spacing, (value) => ({ 'margin-left': `calc(${value} * -1)` })),
     },
   };
 };

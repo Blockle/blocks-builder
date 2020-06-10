@@ -1,4 +1,4 @@
-export interface BlockleSpacing {
+export interface Spacing {
   gutter: string | number;
   xsmall: string | number;
   small: string | number;
@@ -16,13 +16,18 @@ export interface Typography {
 }
 
 export interface Colors {
-  primary: string;
-  secondary: string;
-  success: string;
-  warning: string;
-  black: string;
-  white: string;
-  gray: string;
+  // black: string;
+  // danger: string;
+  // dark: string;
+  // gray: string;
+  // info: string;
+  // light: string;
+  // primary: string;
+  // secondary: string;
+  // success: string;
+  // warning: string;
+  // white: string;
+  [key: string]: string;
 }
 
 export interface BlockleStyle {
@@ -38,7 +43,7 @@ export type Breakpoints = number[];
 export interface BlockleTokens {
   breakpoints: Breakpoints;
   colors: Colors;
-  spacing: BlockleSpacing;
+  spacing: Spacing;
   typography: Typography;
 }
 
