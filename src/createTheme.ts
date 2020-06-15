@@ -193,6 +193,20 @@ export const createTheme = ({
           'text-align': 'justify',
         },
       },
+      textTransform: {
+        capitalise: {
+          'text-transform': 'capitalize',
+        },
+        none: {
+          'text-transform': 'none',
+        },
+        uppercase: {
+          'text-transform': 'uppercase',
+        },
+        lowercase: {
+          'text-transform': 'lowercase',
+        },
+      },
       width: {
         full: {
           width: '100%',
@@ -227,7 +241,9 @@ export const createTheme = ({
       backgroundColor: createProp(colors, (value) => ({ 'background-color': value })),
       gridGap: createProp(spacing, (value) => ({ 'grid-gap': value })),
       negativeMarginTop: createProp(spacing, (value) => ({ 'margin-top': `calc(${value} * -1)` })),
-      negativeMarginLeft: createProp(spacing, (value) => ({ 'margin-left': `calc(${value} * -1)` })),
+      negativeMarginLeft: createProp(spacing, (value) => ({
+        'margin-left': `calc(${value} * -1)`,
+      })),
     },
   };
 };
