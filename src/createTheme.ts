@@ -6,6 +6,7 @@ export const createTheme = ({
   spacing,
   typography,
   colors,
+  fontWeight = { regular: 400, bold: 700 },
 }: BlockleTokens): BlockleTheme => {
   return {
     breakpoints,
@@ -229,14 +230,16 @@ export const createTheme = ({
           'font-size': typography.xlarge,
         },
       },
-      fontWeight: {
-        regular: {
-          'font-weight': 'var(--weight-normal, 400)',
-        },
-        bold: {
-          'font-weight': 'var(--weight-bold, 700)',
-        },
-      },
+      fontWeight: createProp(fontWeight, (weight) => ({ 'font-weight': weight })),
+
+      // {
+      //   regular: {
+      //     'font-weight': 'var(--weight-normal, 400)',
+      //   },
+      //   bold: {
+      //     'font-weight': 'var(--weight-bold, 700)',
+      //   },
+      // },
       color: createProp(colors, (value) => ({ color: value })),
       backgroundColor: createProp(colors, (value) => ({ 'background-color': value })),
       gridGap: createProp(spacing, (value) => ({ 'grid-gap': value })),

@@ -30,6 +30,10 @@ export interface Colors {
   [key: string]: string;
 }
 
+export interface FontWeight {
+  [key: string]: string | number;
+}
+
 export interface BlockleStyle {
   [value: string]: Record<string | number, string | number>;
 }
@@ -45,6 +49,7 @@ export interface BlockleTokens {
   colors: Colors;
   spacing: Spacing;
   typography: Typography;
+  fontWeight?: FontWeight;
 }
 
 export interface BlockleTheme extends BlockleTokens {

@@ -2,7 +2,26 @@ import { BlockleTheme } from './types';
 
 const { writeFileSync } = require('fs');
 
-export function writeCSS(filename: string, theme: BlockleTheme) {
+function shorten(name: string, breakpointIndex: number) {
+  if (process.env.NODE_ENV !== 'production') {
+    return breakpointIndex ? `bb-${name}-bp${breakpointIndex}` : `bb-${name}`;
+  }
+
+  const parts: string[] = [];
+  const matches = name.match(/(^[a-z])|([A-Z])|(?<=[-])([a-z0-9])|([a-z0-9]$)/g);
+
+  matches?.forEach((match) => {
+    parts.push(match);
+  });
+
+  if (breakpointIndex !== 0) {
+    parts.push(`${breakpointIndex}`);
+  }
+
+  return parts.join('');
+}
+
+export function writeCSS(filename: string, theme: BlockleTheme): void {
   console.log(`writeCSS ${filename}`);
 
   const buffer: string[] = [];
@@ -10,17 +29,17 @@ export function writeCSS(filename: string, theme: BlockleTheme) {
   const breakpoints = [...theme.breakpoints];
   const styles = Object.keys(theme.styles);
 
-  styles.forEach(name => {
+  styles.forEach((name) => {
     const style = theme.styles[name];
     const values = Object.keys(style);
 
     buffer.push(`/* ${name} */`);
 
-    values.forEach(key => {
+    values.forEach((key) => {
       const styling = style[key];
-      buffer.push(`.bb-${name}-${key} {`);
+      buffer.push(`.${shorten(`${name}-${key}`, 0)} {`);
 
-      Object.keys(styling).forEach(key => {
+      Object.keys(styling).forEach((key) => {
         buffer.push(`  ${key}: ${styling[key]};`);
       });
 
@@ -38,9 +57,9 @@ export function writeCSS(filename: string, theme: BlockleTheme) {
           breakpointsBuffer[index] = [];
         }
 
-        breakpointsBuffer[index].push(`  .bb-${name}-${key}-bp${i} {`);
+        breakpointsBuffer[index].push(`  .${shorten(`${name}-${key}`, i)} {`);
 
-        Object.keys(styling).forEach(key => {
+        Object.keys(styling).forEach((key) => {
           breakpointsBuffer[index].push(`    ${key}: ${styling[key]};`);
         });
 
@@ -50,7 +69,7 @@ export function writeCSS(filename: string, theme: BlockleTheme) {
     });
   });
 
-  Object.keys(breakpointsBuffer).forEach(breakpoint => {
+  Object.keys(breakpointsBuffer).forEach((breakpoint) => {
     buffer.push('');
     buffer.push(`@media (min-width: ${breakpoint}px) {`);
     buffer.push(breakpointsBuffer[breakpoint].join('\n'));
