@@ -231,15 +231,6 @@ export const createTheme = ({
         },
       },
       fontWeight: createProp(fontWeight, (weight) => ({ 'font-weight': weight })),
-
-      // {
-      //   regular: {
-      //     'font-weight': 'var(--weight-normal, 400)',
-      //   },
-      //   bold: {
-      //     'font-weight': 'var(--weight-bold, 700)',
-      //   },
-      // },
       color: createProp(colors, (value) => ({ color: value })),
       backgroundColor: createProp(colors, (value) => ({ 'background-color': value })),
       gridGap: createProp(spacing, (value) => ({ 'grid-gap': value })),
@@ -247,6 +238,14 @@ export const createTheme = ({
       negativeMarginLeft: createProp(spacing, (value) => ({
         'margin-left': `calc(${value} * -1)`,
       })),
+      fontStyle: {
+        normal: {
+          'font-style': 'normal',
+        },
+        italic: {
+          'font-style': 'italic',
+        },
+      },
     },
   };
 };

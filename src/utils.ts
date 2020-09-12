@@ -1,7 +1,7 @@
 export function createProp(
   map: Record<any, any>,
   processor: (value: string, key: string) => Record<string, string>,
-) {
+): Record<string, Record<string, string>> {
   const keys = Object.keys(map);
   const styleProp: Record<string, Record<string, string>> = {};
 
