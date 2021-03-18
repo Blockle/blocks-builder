@@ -2,7 +2,7 @@ import { BlockleTheme } from './types';
 
 const { writeFileSync } = require('fs');
 
-export function writeTS(filename: string, theme: BlockleTheme) {
+export function writeTS(filename: string, theme: BlockleTheme): void {
   console.log(`writeTS ${filename}`);
 
   const buffer: string[] = [];
