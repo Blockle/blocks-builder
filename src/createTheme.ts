@@ -14,23 +14,6 @@ export const createTheme = ({
     spacing,
     typography,
     styles: {
-      alignItems: {
-        stretch: {
-          'align-items': 'stretch',
-        },
-        center: {
-          'align-items': 'center',
-        },
-        'flex-start': {
-          'align-items': 'flex-start',
-        },
-        'flex-end': {
-          'align-items': 'flex-end',
-        },
-        baseline: {
-          'align-items': 'baseline',
-        },
-      },
       display: {
         block: {
           display: 'block',
@@ -98,6 +81,43 @@ export const createTheme = ({
       height: {
         full: {
           height: '100%',
+        },
+      },
+      alignItems: {
+        stretch: {
+          'align-items': 'stretch',
+        },
+        center: {
+          'align-items': 'center',
+        },
+        'flex-start': {
+          'align-items': 'flex-start',
+        },
+        'flex-end': {
+          'align-items': 'flex-end',
+        },
+        baseline: {
+          'align-items': 'baseline',
+        },
+        start: {
+          'align-items': 'start',
+        },
+        end: {
+          'align-items': 'end',
+        },
+      },
+      justifyItems: {
+        stretch: {
+          'justify-items': 'stretch',
+        },
+        center: {
+          'justify-items': 'center',
+        },
+        start: {
+          'justify-items': 'start',
+        },
+        end: {
+          'justify-items': 'end',
         },
       },
       justifyContent: {
@@ -234,6 +254,8 @@ export const createTheme = ({
       color: createProp(colors, (value) => ({ color: value })),
       backgroundColor: createProp(colors, (value) => ({ 'background-color': value })),
       gridGap: createProp(spacing, (value) => ({ 'grid-gap': value })),
+      columnGap: createProp(spacing, (value) => ({ 'column-gap': value })),
+      rowGap: createProp(spacing, (value) => ({ 'row-gap': value })),
       negativeMarginTop: createProp(spacing, (value) => ({ 'margin-top': `calc(${value} * -1)` })),
       negativeMarginLeft: createProp(spacing, (value) => ({
         'margin-left': `calc(${value} * -1)`,
@@ -244,6 +266,14 @@ export const createTheme = ({
         },
         italic: {
           'font-style': 'italic',
+        },
+      },
+      gridAutoFlow: {
+        row: {
+          'grid-auto-flow': 'row',
+        },
+        column: {
+          'grid-auto-flow': 'column',
         },
       },
     },
