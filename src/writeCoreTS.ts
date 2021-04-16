@@ -3,7 +3,7 @@ import { GeneratedStyles } from './types';
 const { writeFileSync } = require('fs');
 
 function quoteify(value: string | number) {
-  if (typeof value === 'number') {
+  if (typeof value === 'number' || !isNaN(value as any)) {
     return value;
   }
 
@@ -11,7 +11,7 @@ function quoteify(value: string | number) {
 }
 
 export function writeCoreTS(filename: string, theme: GeneratedStyles): void {
-  console.log(`writeTS ${filename}`);
+  console.log(`writeCoreTS ${filename}`);
 
   const buffer: string[] = [];
   const { dynamic, styles } = theme.types;
