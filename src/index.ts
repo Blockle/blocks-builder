@@ -1,5 +1,4 @@
-export { createTheme } from './createTheme';
-export * from './types';
+export { createStyles } from './createStyles';
+export { writeCoreTS } from './writeCoreTS';
 export { writeCSS } from './writeCSS';
-export { writeTS } from './writeTS';
 

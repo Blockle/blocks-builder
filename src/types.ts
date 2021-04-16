@@ -1,57 +1,53 @@
-export interface Spacing {
-  gutter: string | number;
-  xsmall: string | number;
-  small: string | number;
-  medium: string | number;
-  large: string | number;
-  xlarge: string | number;
-}
-
-export interface Typography {
-  xsmall: string | number;
-  small: string | number;
-  medium: string | number;
-  large: string | number;
-  xlarge: string | number;
-}
-
-export interface Colors {
-  // black: string;
-  // danger: string;
-  // dark: string;
-  // gray: string;
-  // info: string;
-  // light: string;
-  // primary: string;
-  // secondary: string;
-  // success: string;
-  // warning: string;
-  // white: string;
-  [key: string]: string;
-}
-
-export interface FontWeight {
+export interface StyleProp {
   [key: string]: string | number;
 }
 
-export interface BlockleStyle {
-  [value: string]: Record<string | number, string | number>;
+export interface Styles {
+  [key: string]: Record<string | number, StyleProp>;
 }
 
-export interface BlockleStyles {
-  [name: string]: BlockleStyle;
+export interface SpacingStyle {
+  type: 'spacing';
+  processor: (value: string) => StyleProp;
 }
 
-export type Breakpoints = number[];
-
-export interface BlockleTokens {
-  breakpoints: Breakpoints;
-  colors: Colors;
-  spacing: Spacing;
-  typography: Typography;
-  fontWeight?: FontWeight;
+export interface ColorStyle {
+  type: 'color';
+  processor: (value: string) => StyleProp;
 }
 
-export interface BlockleTheme extends BlockleTokens {
-  styles: BlockleStyles;
+export interface FontSizeStyle {
+  type: 'fontSize';
+  processor: (value: string) => StyleProp;
+}
+
+export interface FontWeightStyle {
+  type: 'fontWeight';
+  processor: (value: string) => StyleProp;
+}
+
+export type DynamicStyles = Record<
+  string,
+  SpacingStyle | ColorStyle | FontSizeStyle | FontWeightStyle
+>;
+
+export interface StylesConfig {
+  breakpoints: number[];
+  spacing: Record<string, string>;
+  fontSize: Record<string, string>;
+  fontWeight: Record<string, string>;
+  color: Record<string, string>;
+}
+
+export interface GeneratedStyles {
+  breakpoints: number[];
+  styles: Styles;
+  types: {
+    dynamic: {
+      [key: string]: string[];
+    };
+    styles: {
+      [key: string]: string | (string | number)[];
+    };
+  };
 }

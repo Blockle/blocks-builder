@@ -1,4 +1,4 @@
-import { BlockleTheme } from './types';
+import { GeneratedStyles } from './types';
 
 const { writeFileSync } = require('fs');
 
@@ -21,7 +21,7 @@ function shorten(name: string, breakpointIndex: number) {
   return parts.join('');
 }
 
-export function writeCSS(filename: string, theme: BlockleTheme): void {
+export function writeCSS(filename: string, theme: GeneratedStyles): void {
   console.log(`writeCSS ${filename}`);
 
   const buffer: string[] = [];
