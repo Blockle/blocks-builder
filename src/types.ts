@@ -26,9 +26,14 @@ export interface FontWeightStyle {
   processor: (value: string) => StyleProp;
 }
 
+export interface StaticStyle {
+  type: 'static';
+  values: Record<string, Record<string, string | number>>;
+}
+
 export type DynamicStyles = Record<
   string,
-  SpacingStyle | ColorStyle | FontSizeStyle | FontWeightStyle
+  SpacingStyle | ColorStyle | FontSizeStyle | FontWeightStyle | StaticStyle
 >;
 
 export interface StylesConfig {

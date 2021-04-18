@@ -1,237 +1,288 @@
-import { DynamicStyles, Styles } from './types';
+import { DynamicStyles } from './types';
 
-export const baseStyles: Styles = {
+export const styles: DynamicStyles = {
   display: {
-    block: {
-      display: 'block',
-    },
-    inline: {
-      display: 'inline',
-    },
-    'inline-block': {
-      display: 'inline-block',
-    },
-    flex: {
-      display: 'flex',
-    },
-    'inline-flex': {
-      display: 'inline-flex',
-    },
-    grid: {
-      display: 'grid',
-    },
-    'inline-grid': {
-      display: 'inline-grid',
-    },
-    none: {
-      display: 'none',
+    type: 'static',
+    values: {
+      block: {
+        display: 'block',
+      },
+      inline: {
+        display: 'inline',
+      },
+      'inline-block': {
+        display: 'inline-block',
+      },
+      flex: {
+        display: 'flex',
+      },
+      'inline-flex': {
+        display: 'inline-flex',
+      },
+      grid: {
+        display: 'grid',
+      },
+      'inline-grid': {
+        display: 'inline-grid',
+      },
+      none: {
+        display: 'none',
+      },
     },
   },
   flexDirection: {
-    row: {
-      'flex-direction': 'row',
-    },
-    'row-reverse': {
-      'flex-direction': 'row-reverse',
-    },
-    column: {
-      'flex-direction': 'column',
-    },
-    'column-reverse': {
-      'flex-direction': 'column-reverse',
+    type: 'static',
+    values: {
+      row: {
+        'flex-direction': 'row',
+      },
+      'row-reverse': {
+        'flex-direction': 'row-reverse',
+      },
+      column: {
+        'flex-direction': 'column',
+      },
+      'column-reverse': {
+        'flex-direction': 'column-reverse',
+      },
     },
   },
   flexGrow: {
-    0: {
-      'flex-grow': 0,
-    },
-    1: {
-      'flex-grow': 1,
+    type: 'static',
+    values: {
+      0: {
+        'flex-grow': 0,
+      },
+      1: {
+        'flex-grow': 1,
+      },
     },
   },
   flexShrink: {
-    0: {
-      'flex-shrink': 0,
+    type: 'static',
+    values: {
+      0: {
+        'flex-shrink': 0,
+      },
     },
   },
   flexWrap: {
-    nowrap: {
-      'flex-wrap': 'nowrap',
-    },
-    wrap: {
-      'flex-wrap': 'wrap',
-    },
-    'wrap-reverse': {
-      'flex-wrap': 'wrap-reverse',
+    type: 'static',
+    values: {
+      nowrap: {
+        'flex-wrap': 'nowrap',
+      },
+      wrap: {
+        'flex-wrap': 'wrap',
+      },
+      'wrap-reverse': {
+        'flex-wrap': 'wrap-reverse',
+      },
     },
   },
   height: {
-    full: {
-      height: '100%',
+    type: 'static',
+    values: {
+      full: {
+        height: '100%',
+      },
     },
   },
   alignItems: {
-    stretch: {
-      'align-items': 'stretch',
-    },
-    center: {
-      'align-items': 'center',
-    },
-    'flex-start': {
-      'align-items': 'flex-start',
-    },
-    'flex-end': {
-      'align-items': 'flex-end',
-    },
-    baseline: {
-      'align-items': 'baseline',
-    },
-    start: {
-      'align-items': 'start',
-    },
-    end: {
-      'align-items': 'end',
+    type: 'static',
+    values: {
+      stretch: {
+        'align-items': 'stretch',
+      },
+      center: {
+        'align-items': 'center',
+      },
+      'flex-start': {
+        'align-items': 'flex-start',
+      },
+      'flex-end': {
+        'align-items': 'flex-end',
+      },
+      baseline: {
+        'align-items': 'baseline',
+      },
+      start: {
+        'align-items': 'start',
+      },
+      end: {
+        'align-items': 'end',
+      },
     },
   },
   justifyItems: {
-    stretch: {
-      'justify-items': 'stretch',
-    },
-    center: {
-      'justify-items': 'center',
-    },
-    start: {
-      'justify-items': 'start',
-    },
-    end: {
-      'justify-items': 'end',
+    type: 'static',
+    values: {
+      stretch: {
+        'justify-items': 'stretch',
+      },
+      center: {
+        'justify-items': 'center',
+      },
+      start: {
+        'justify-items': 'start',
+      },
+      end: {
+        'justify-items': 'end',
+      },
     },
   },
   justifyContent: {
-    'flex-start': {
-      'justify-content': 'flex-start',
-    },
-    'flex-end': {
-      'justify-content': 'flex-end',
-    },
-    center: {
-      'justify-content': 'center',
-    },
-    'space-between': {
-      'justify-content': 'space-between',
-    },
-    'space-around': {
-      'justify-content': 'space-around',
+    type: 'static',
+    values: {
+      'flex-start': {
+        'justify-content': 'flex-start',
+      },
+      'flex-end': {
+        'justify-content': 'flex-end',
+      },
+      center: {
+        'justify-content': 'center',
+      },
+      'space-between': {
+        'justify-content': 'space-between',
+      },
+      'space-around': {
+        'justify-content': 'space-around',
+      },
     },
   },
   overflow: {
-    auto: {
-      overflow: 'auto',
-    },
-    scroll: {
-      overflow: 'scroll',
-    },
-    hidden: {
-      overflow: 'hidden',
-    },
-    visible: {
-      overflow: 'visible',
+    type: 'static',
+    values: {
+      auto: {
+        overflow: 'auto',
+      },
+      scroll: {
+        overflow: 'scroll',
+      },
+      hidden: {
+        overflow: 'hidden',
+      },
+      visible: {
+        overflow: 'visible',
+      },
     },
   },
   overflowX: {
-    auto: {
-      'overflow-x': 'auto',
-    },
-    scroll: {
-      'overflow-x': 'scroll',
-    },
-    hidden: {
-      'overflow-x': 'hidden',
-    },
-    visible: {
-      'overflow-x': 'visible',
+    type: 'static',
+    values: {
+      auto: {
+        'overflow-x': 'auto',
+      },
+      scroll: {
+        'overflow-x': 'scroll',
+      },
+      hidden: {
+        'overflow-x': 'hidden',
+      },
+      visible: {
+        'overflow-x': 'visible',
+      },
     },
   },
   overflowY: {
-    auto: {
-      'overflow-y': 'auto',
-    },
-    scroll: {
-      'overflow-y': 'scroll',
-    },
-    hidden: {
-      'overflow-y': 'hidden',
-    },
-    visible: {
-      'overflow-y': 'visible',
+    type: 'static',
+    values: {
+      auto: {
+        'overflow-y': 'auto',
+      },
+      scroll: {
+        'overflow-y': 'scroll',
+      },
+      hidden: {
+        'overflow-y': 'hidden',
+      },
+      visible: {
+        'overflow-y': 'visible',
+      },
     },
   },
   position: {
-    relative: {
-      position: 'relative',
-    },
-    fixed: {
-      position: 'fixed',
-    },
-    absolute: {
-      position: 'absolute',
-    },
-    sticky: {
-      position: 'sticky',
+    type: 'static',
+    values: {
+      relative: {
+        position: 'relative',
+      },
+      fixed: {
+        position: 'fixed',
+      },
+      absolute: {
+        position: 'absolute',
+      },
+      sticky: {
+        position: 'sticky',
+      },
     },
   },
   textAlign: {
-    left: {
-      'text-align': 'left',
-    },
-    right: {
-      'text-align': 'right',
-    },
-    center: {
-      'text-align': 'center',
-    },
-    justify: {
-      'text-align': 'justify',
+    type: 'static',
+    values: {
+      left: {
+        'text-align': 'left',
+      },
+      right: {
+        'text-align': 'right',
+      },
+      center: {
+        'text-align': 'center',
+      },
+      justify: {
+        'text-align': 'justify',
+      },
     },
   },
   textTransform: {
-    capitalise: {
-      'text-transform': 'capitalize',
-    },
-    none: {
-      'text-transform': 'none',
-    },
-    uppercase: {
-      'text-transform': 'uppercase',
-    },
-    lowercase: {
-      'text-transform': 'lowercase',
+    type: 'static',
+    values: {
+      capitalise: {
+        'text-transform': 'capitalize',
+      },
+      none: {
+        'text-transform': 'none',
+      },
+      uppercase: {
+        'text-transform': 'uppercase',
+      },
+      lowercase: {
+        'text-transform': 'lowercase',
+      },
     },
   },
   width: {
-    full: {
-      width: '100%',
+    type: 'static',
+    values: {
+      full: {
+        width: '100%',
+      },
     },
   },
   fontStyle: {
-    normal: {
-      'font-style': 'normal',
-    },
-    italic: {
-      'font-style': 'italic',
+    type: 'static',
+    values: {
+      normal: {
+        'font-style': 'normal',
+      },
+      italic: {
+        'font-style': 'italic',
+      },
     },
   },
   gridAutoFlow: {
-    row: {
-      'grid-auto-flow': 'row',
-    },
-    column: {
-      'grid-auto-flow': 'column',
+    type: 'static',
+    values: {
+      row: {
+        'grid-auto-flow': 'row',
+      },
+      column: {
+        'grid-auto-flow': 'column',
+      },
     },
   },
-};
-
-export const dynamicStyles: DynamicStyles = {
   fontSize: {
     type: 'fontSize',
     processor: (value) => ({ 'font-size': value }),

@@ -1,4 +1,4 @@
-import { baseStyles, dynamicStyles } from './styles';
+import { styles } from './styles';
 import { GeneratedStyles, StyleProp, Styles, StylesConfig } from './types';
 
 function createStyle(
@@ -23,10 +23,13 @@ export function createStyles({
 }: StylesConfig): GeneratedStyles {
   const extraStyles: Styles = {};
 
-  for (const key in dynamicStyles) {
-    const entry = dynamicStyles[key];
+  for (const key in styles) {
+    const entry = styles[key];
 
     switch (entry.type) {
+      case 'static':
+        extraStyles[key] = entry.values;
+        break;
       case 'color':
         extraStyles[key] = createStyle(color, entry.processor);
         break;
@@ -44,20 +47,19 @@ export function createStyles({
 
   const typedStyles: GeneratedStyles['types']['styles'] = {};
 
-  for (const key in baseStyles) {
-    typedStyles[key] = Object.keys(baseStyles[key]);
-  }
+  for (const key in styles) {
+    const entry = styles[key];
 
-  for (const key in dynamicStyles) {
-    typedStyles[key] = dynamicStyles[key].type;
+    if (entry.type === 'static') {
+      typedStyles[key] = Object.keys(entry.values);
+    } else {
+      typedStyles[key] = entry.type;
+    }
   }
 
   return {
     breakpoints,
-    styles: {
-      ...baseStyles,
-      ...extraStyles,
-    },
+    styles: extraStyles,
     types: {
       dynamic: {
         color: Object.keys(color),
